@@ -1,7 +1,9 @@
 package com.example.universitypro.controller;
 
+import com.example.universitypro.dto.StudentDto;
 import com.example.universitypro.entity.Student;
 import com.example.universitypro.manager.StudentManager;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,14 +20,15 @@ public class StudentController {
 
 
     @GetMapping("/students")
-    public List<Student> getAll(){
+    public List<StudentDto> getAll(){
       return  studentManager.getAll();
     }
     @GetMapping("/students/{id}")
-    public Student getId(@PathVariable int id){
+    public StudentDto getId(@PathVariable int id){
         return studentManager.getId(id);
     }
     @PostMapping("/students")
+    @ResponseStatus(code = HttpStatus.CREATED)
     public void saveStudent(@RequestBody Student student){
         studentManager.saveUser(student);
     }

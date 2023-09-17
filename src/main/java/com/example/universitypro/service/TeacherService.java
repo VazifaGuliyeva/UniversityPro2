@@ -1,14 +1,15 @@
 package com.example.universitypro.service;
 
+import com.example.universitypro.dto.TeacherDto;
 import com.example.universitypro.entity.Teacher;
 
 import java.util.List;
 
 public interface  TeacherService {
 
-    List<Teacher> getAll();
+    List<TeacherDto> getAll();
 
-    Teacher getById(int id);
+    TeacherDto getById(int id);
 
     void saveTeacher(Teacher teacher);
 
